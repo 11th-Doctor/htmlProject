@@ -22,7 +22,7 @@
                       <th scope="col">書名</th>
                       <th scope="col">作者</th>
                       <th scope="col">出版日期</th>
-                      <th scope="col">定價</th>
+                      <th scope="col">售價</th>
                       <th scope="col">修改|刪除</th>
                     </tr>
                   </thead>
@@ -47,28 +47,55 @@
             <div class="col-sm-12">
                 <!--<button class="btn btn-primary btn-block">新增</button>-->
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModalCenter">
-                  Launch demo modal
+                <button type="button" id="addBtn" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModalCenter">
+                  新增
                 </button>
                 
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                   <div class="modal-dialog modal-dialog-centered" role="document">
+                    
                     <div class="modal-content">
                       <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
-                      </div>
+                      </div>  <!-- End of modal header -->
+                      
                       <div class="modal-body">
-                        ...
-                      </div>
+                        <form>
+                          <div class="form-group">
+                            <label class="label-control">
+                              ISBN:
+                              <input type="text" id="isbn" name="isbn"/>
+                            </label>
+                            <label class="label-control">
+                              書名:
+                              <input type="text" id="bookName" name="bookName"/>
+                            </label>
+                            <label class="label-control">
+                              作者:
+                              <input type="text" id="author" name="author"/>
+                            </label>
+                            <label class="label-control">
+                              出版日期:
+                              <input type="text" id="publicationDate" name="publicationDate"/>
+                            </label>
+                            <label class="label-control">
+                              售價:
+                              <input type="text" id="price" name="price"/>
+                            </label>
+                          </div>
+                        </form>
+                      </div>  <!-- End of modal body -->
+                      
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-primary">Save changes</button>
-                      </div>
-                    </div>
+                      </div>  <!-- End of modal footer -->
+                      
+                    </div>  <!-- End of modal content -->
                   </div>
                 </div>
             </div>
