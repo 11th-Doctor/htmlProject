@@ -1,6 +1,15 @@
 
 $(function () {
     
+    var indexArray = new Array();
+    
+    for (var i=0, count=localStorage.length; i< count; i++) {
+        indexArray[i] = localStorage.key(i);
+        showRecord(indexArray[i]);
+    }
+
+    // console.log(indexArray);
+    
     $("#formOfAdding").submit(function() {
         
         if (typeof(Storage) !== "undefined") {
@@ -24,6 +33,7 @@ $(function () {
         
         // Generating td
         var bookList = JSON.parse(localStorage.getItem(isbn));
+        
         var isbn = "<td>" + bookList.isbn + "</td>";
         var bookName = "<td>" + bookList.bookName + "</td>";
         var author = "<td>" + bookList.author + "</td>";
@@ -34,12 +44,14 @@ $(function () {
         
         // Generating tr
         var tTr = $("<tr></tr>").append(isbn).append(bookName).append(author)
-        .append(publicationDate).append(price).append(buttons);
+        .append(publicationDate).append(price).append(buttons).attr("data-isbn",bookList.isbn);
         
         // Appending tr to tbody
         $("#mainTable tbody").append(tTr);
-        console.log(tTr);
     }  
     
-    //showRecord("1111");
+    
+    
+     
+    //  console.log(localStorage);
 });
