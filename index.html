@@ -64,7 +64,7 @@
                       </div>  <!-- End of modal header -->
                       
                       <div class="modal-body">
-                        <form>
+                        <form id="formOfAdding">
                           <div class="form-group">
                             <label class="label-control">
                               ISBN:
@@ -80,7 +80,7 @@
                             </label>
                             <label class="label-control">
                               出版日期:
-                              <input type="text" id="publicationDate" name="publicationDate"/>
+                              <input type="date" id="publicationDate" name="publicationDate"/>
                             </label>
                             <label class="label-control">
                               售價:
@@ -92,7 +92,7 @@
                       
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="submit" class="btn btn-primary" form="formOfAdding">新增</button>
                       </div>  <!-- End of modal footer -->
                       
                     </div>  <!-- End of modal content -->
