@@ -1,4 +1,3 @@
-
 $(function () {
     
     var indexArray = new Array();
@@ -16,21 +15,32 @@ $(function () {
 
     // console.log(indexArray);
     
-    $("#formOfAdding").submit(function() {
+    $("#formOfAdding").submit(function(e) {
         
-        if (typeof(Storage) !== "undefined") {
-            var rows = {
-                isbn:$("#isbn").val(),
-                bookName:$("#bookName").val(),
-                author:$("#author").val(),
-                publicationDate:$("#publicationDate").val(),
-                price:$("#price").val()
+        // use every() to ensure that all existed ISBNs are not the same as the submitted isnb
+        
+        // Function of indexOf returns -1 when the submitted isbn does not exist in the array indexArray
+        
+        if (indexArray.indexOf($("#isbn").val()) === -1) {
+            
+            if (typeof(Storage) !== "undefined") {
+                var rows = {
+                    isbn:$("#isbn").val(),
+                    bookName:$("#bookName").val(),
+                    author:$("#author").val(),
+                    publicationDate:$("#publicationDate").val(),
+                    price:$("#price").val()
+                }
+                
+                localStorage.setItem(rows.isbn,JSON.stringify(rows));
+                
+            } else {
+                document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
             }
             
-            localStorage.setItem(rows.isbn,JSON.stringify(rows));
-            
-        } else {
-            document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+        } else { // Add the record into localStorage as the submitted isbn does not repeat
+            alert("該ISBN已存在!");
+            e.preventDefault();
         }
     });
       
