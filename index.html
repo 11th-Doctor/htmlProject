@@ -9,6 +9,18 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 
     <title>圖書管理系統</title>
+    <style>
+      /*body {*/
+      /*  background-color:#f5f0f0;*/
+      /*}*/
+      
+      .modal-header, h4, .close {
+        background-color:gray;
+        color:white;
+        text-align: center;
+        font-size:2em;
+      }
+    </style>
   </head>
   <body>
     <div class="container">
@@ -25,18 +37,18 @@
                       <th scope="col">修改|刪除</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo1</td>
-                      <td>@mdo2</td>
-                      <td>
-                          <button class="btn btn-success">修改</button>
-                          <button class="btn btn-danger">刪除</button>
-                      </td>
-                    </tr>
+                  <tbody>   
+                    <!--<tr>-->
+                    <!--  <th scope="row">1</th>-->
+                    <!--  <td>Mark</td>-->
+                    <!--  <td>Otto</td>-->
+                    <!--  <td>@mdo</td>-->
+                    <!--  <td>1233</td>-->
+                    <!--  <td>-->
+                    <!--    <button class="btn btn-success" data-toggle="modal" data-target="#ModalEdit">修改</button>-->
+                    <!--    <button class="btn btn-danger">刪除</button>-->
+                    <!--  </td>-->
+                    <!--</tr>-->
                   </tbody>
                 </table>
             </div>  <!--  End of col-sm-12  -->
@@ -55,10 +67,13 @@
                   <div class="modal-dialog modal-dialog-centered" role="document">
                     
                     <div class="modal-content">
+                      
                       <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+                        
+                        <h4 class="modal-title" id="exampleModalCenterTitle">新增</h4>
+                        
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
+                          <span aria-hidden="true">&times;
                         </button>
                       </div>  <!-- End of modal header -->
                       
@@ -67,23 +82,23 @@
                           <div class="form-group">
                             <label class="label-control">
                               ISBN:
-                              <input type="text" id="isbn" name="isbn"/>
+                              <input type="text" class="form-control" id="isbn" name="isbn"/>
                             </label>
                             <label class="label-control">
                               書名:
-                              <input type="text" id="bookName" name="bookName"/>
+                              <input type="text" class="form-control" id="bookName" name="bookName"/>
                             </label>
                             <label class="label-control">
                               作者:
-                              <input type="text" id="author" name="author"/>
+                              <input type="text" class="form-control" id="author" name="author"/>
                             </label>
                             <label class="label-control">
                               出版日期:
-                              <input type="date" id="publicationDate" name="publicationDate"/>
+                              <input type="date" class="form-control" id="publicationDate" name="publicationDate"/>
                             </label>
                             <label class="label-control">
                               售價:
-                              <input type="text" id="price" name="price"/>
+                              <input type="text" class="form-control" id="price" name="price"/>
                             </label>
                           </div>
                         </form>
@@ -96,8 +111,54 @@
                       
                     </div>  <!-- End of modal content -->
                   </div>
-                </div>
-            </div>
+                </div>  <!-- End of modal -->
+                
+                <!-- Modal -->
+                <div class="modal fade" id="ModalEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    
+                    <div class="modal-content">
+                      
+                      <div class="modal-header">
+                        <h4 class="modal-title" id="exampleModalCenterTitle">修改</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>  <!-- End of modal header -->
+                      
+                      <div class="modal-body">
+                        <form id="formOfEditing">
+                          <div class="form-group">
+                            <label class="label-control">
+                              ISBN:
+                              <input type="text" class="form-control" id="isbnE" name="isbn"/>
+                            </label>
+                            <label class="label-control">
+                              書名:
+                              <input type="text" class="form-control" id="bookNameE" name="bookName"/>
+                            </label>
+                            <label class="label-control">
+                              作者:
+                              <input type="text" class="form-control" id="authorE" name="author"/>
+                            </label>
+                            <label class="label-control">
+                              出版日期:
+                              <input type="date" class="form-control" id="publicationDateE" name="publicationDate"/>
+                            </label>
+                            <label class="label-control">
+                              售價:
+                              <input type="text" class="form-control" id="priceE" name="price"/>
+                            </label>
+                          </div>
+                        </form>
+                      </div>  <!-- End of modal body -->
+                      
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" form="formOfEditing">修改</button>
+                      </div>  <!-- End of modal footer -->
+                      
+            </div>  <!-- End of modal content -->
         </div>
     </div>
     <div id="debug"></div>
