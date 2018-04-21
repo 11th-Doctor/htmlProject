@@ -2,11 +2,16 @@
 $(function () {
     
     var indexArray = new Array();
+    showTable();
     
-    for (var i=0, count=localStorage.length; i< count; i++) {
-        indexArray[i] = localStorage.key(i);
-        showRecord(indexArray[i]);
+    function showTable()
+    {
+        for (var i=0, count=localStorage.length; i< count; i++) {
+            indexArray[i] = localStorage.key(i);
+            showRecord(indexArray[i]);
+        }
     }
+    
 
     // console.log(indexArray);
     
@@ -34,12 +39,13 @@ $(function () {
         // Generating td
         var bookList = JSON.parse(localStorage.getItem(isbn));
         
-        var isbn = "<td>" + bookList.isbn + "</td>";
+        var isbn = "<th scope='row'>" + bookList.isbn + "</td>";
         var bookName = "<td>" + bookList.bookName + "</td>";
         var author = "<td>" + bookList.author + "</td>";
         var publicationDate = "<td>" + bookList.publicationDate + "</td>";
         var price = "<td>" + bookList.price + "</td>";
-        var buttons = "<td>" + '<button class="btn btn-success">修改</button>' 
+        var buttons = "<td>" + '<button class="btn btn-success" data-toggle="modal"'
+            + ' data-target="#ModalEdit">修改</button>' 
             + ' <button class="btn btn-danger">刪除</button>';
         
         // Generating tr
@@ -51,7 +57,45 @@ $(function () {
     }  
     
     
+    $("#mainTable tbody tr .btn-danger").click(function(e){
+        var isbn = $(this).parents("tr").data("isbn");
+        var index = indexArray.indexOf(isbn.toString());
+        $(this).parents("tr").remove();
+        indexArray.splice(index,1);
+        localStorage.removeItem(isbn);
+    });
+
+
+    //Get the reference of the form 0f formOfEditing
+    //and deal with the submit event of it.
     
-     
-    //  console.log(localStorage);
+    $("#mainTable tbody tr .btn-success").click(function() {
+        isbn = $(this).parents("tr").data("isbn");
+        
+
+        var bookList = JSON.parse(localStorage.getItem(isbn));
+            
+            $("#isbnE").val(bookList.isbn);
+            $("#bookNameE").val(bookList.bookName);
+            $("#authorE").val(bookList.author);
+            $("#publicationDateE").val(bookList.publicationDate);
+            $("#priceE").val(bookList.price);
+            
+        $("#formOfEditing").submit(function(e){
+
+            var rows = {
+                    isbn:$("#isbnE").val(),
+                    bookName:$("#bookNameE").val(),
+                    author:$("#authorE").val(),
+                    publicationDate:$("#publicationDateE").val(),
+                    price:$("#priceE").val()
+                }
+                
+            localStorage.setItem(isbn,JSON.stringify(rows));
+            console.log(rows);
+            // e.preventDefault();
+        });
+        console.log(indexArray);    
+    });
+    
 });
