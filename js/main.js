@@ -2,6 +2,7 @@
 $(function () {
     
     var indexArray = new Array();
+
     showTable();
     
     function showTable()
@@ -11,7 +12,6 @@ $(function () {
             showRecord(indexArray[i]);
         }
     }
-    
 
     // console.log(indexArray);
     
@@ -39,7 +39,7 @@ $(function () {
         // Generating td
         var bookList = JSON.parse(localStorage.getItem(isbn));
         
-        var isbn = "<th scope='row'>" + bookList.isbn + "</td>";
+        var isbn = "<td>" + bookList.isbn + "</td>";
         var bookName = "<td>" + bookList.bookName + "</td>";
         var author = "<td>" + bookList.author + "</td>";
         var publicationDate = "<td>" + bookList.publicationDate + "</td>";
@@ -55,8 +55,9 @@ $(function () {
         // Appending tr to tbody
         $("#mainTable tbody").append(tTr);
     }  
-    
-    
+
+    //Delete the record that the user wants to 
+
     $("#mainTable tbody tr .btn-danger").click(function(e){
         var isbn = $(this).parents("tr").data("isbn");
         var index = indexArray.indexOf(isbn.toString());
