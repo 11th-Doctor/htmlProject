@@ -98,34 +98,5 @@ $(function () {
         });  
     });
     
-
-    $("#mainTable tbody tr .btn-danger").click(function(e){
-        var isbn = $(this).parents("tr").data("isbn");
-        var index = indexArray.indexOf(isbn.toString());
-        $(this).parents("tr").remove();
-        indexArray.splice(index,1);
-        localStorage.removeItem(isbn);
-    });
-    
-    $("#mainTable tbody tr .btn-success").click(function() {
-        isbn = $(this).parents("tr").data("isbn");
-        
-        var bookList = JSON.parse(localStorage.getItem(isbn));
-        
-        $("#isbnE").val(bookList.isbn);
-        $("#bookNameE").val(bookList.bookName);
-        $("#authorE").val(bookList.author);
-        $("#publicationDateE").val(bookList.publicationDate);
-        $("#priceE").val(bookList.price);
-        
-        var rows = {
-                isbn:$("#isbnE").val(),
-                bookName:$("#bookNameE").val(),
-                author:$("#authorE").val(),
-                publicationDate:$("#publicationDateE").val(),
-                price:$("#priceE").val()
-            }
-    });
-    
 });
 
