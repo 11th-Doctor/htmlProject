@@ -63,14 +63,14 @@ $(function () {
         // Generating td
         var bookList = JSON.parse(localStorage.getItem(isbn));
         
-        var isbn = "<th scope='row'>" + bookList.isbn + "</td>";
+        var isbn = "<td>" + bookList.isbn + "</td>";
         var bookName = "<td>" + bookList.bookName + "</td>";
         var author = "<td>" + bookList.author + "</td>";
         var publicationDate = "<td>" + bookList.publicationDate + "</td>";
         var price = "<td>" + bookList.price + "</td>";
-        var buttons = "<td>" + '<button class="btn btn-success" data-toggle="modal"'
+        var buttons = "<td>" + '<button class="btn btn-outline-success btn-sm" data-toggle="modal"'
             + ' data-target="#ModalEdit">修改</button>' 
-            + ' <button class="btn btn-danger">刪除</button>';
+            + ' <button class="btn btn-outline-danger btn-sm">刪除</button></td>';
         
         // Generating tr
         var tTr = $("<tr></tr>").append(isbn).append(bookName).append(author)
@@ -82,9 +82,9 @@ $(function () {
 
     //Delete the record that the user wants to 
 
-    $("#mainTable tbody tr .btn-danger").click(function(e){
-        var isbn = $(this).parents("tr").data("isbn");
-        var index = indexArray.indexOf(isbn.toString());
+    $("#mainTable tbody tr .btn-outline-danger").click(function(e){
+        var isbn = $(this).parents("tr").attr("data-isbn");
+        var index = indexArray.indexOf(isbn);
         $(this).parents("tr").remove();
         indexArray.splice(index,1);
         localStorage.removeItem(isbn);
@@ -94,10 +94,10 @@ $(function () {
     //Get the reference of the form 0f formOfEditing
     //and deal with the submit event of it.
     
-    $("#mainTable tbody tr .btn-success").click(function() {
-        isbn = $(this).parents("tr").data("isbn");
+    $("#mainTable tbody tr .btn-outline-success").click(function() {
+        //var isbn = $(this).parents("tr").data("isbn");
+        var isbn = $(this).parents("tr").attr("data-isbn");
         
-
         var bookList = JSON.parse(localStorage.getItem(isbn));
             
             $("#isbnE").val(bookList.isbn);
@@ -118,8 +118,10 @@ $(function () {
                 
             localStorage.setItem(isbn,JSON.stringify(rows));
             
-        });  
+        });
     });
+    
+    $("#mainTable").tablesorter();
     
 });
 
