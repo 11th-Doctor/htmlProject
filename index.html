@@ -20,6 +20,11 @@
         text-align: center;
         font-size:2em;
       }
+      
+      #hint {
+        color:red;
+        font-weight:bold;
+      }
     </style>
   </head>
   <body>
@@ -82,6 +87,7 @@
                           <div class="form-group">
                             <label class="label-control">
                               ISBN:
+                              <span id="hint"></span>
                               <input type="text" class="form-control" id="isbn" name="isbn"/>
                             </label>
                             <label class="label-control">

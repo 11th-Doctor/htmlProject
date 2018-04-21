@@ -15,11 +15,24 @@ $(function () {
 
     // console.log(indexArray);
     
+    $("#addBtn").click(function(){
+        
+    $("#isbn").blur(function(){
+        if (indexArray.indexOf($("#isbn").val()) !== -1) {
+            $("#hint").html("&times;該ISBN已存在!");  
+           }
+           else {
+               $("#hint").html("");
+           }
+        });
+    });
+    
     $("#formOfAdding").submit(function(e) {
         
         // use every() to ensure that all existed ISBNs are not the same as the submitted isnb
         
         // Function of indexOf returns -1 when the submitted isbn does not exist in the array indexArray
+        
         
         if (indexArray.indexOf($("#isbn").val()) === -1) {
             
@@ -39,7 +52,7 @@ $(function () {
             }
             
         } else { // Add the record into localStorage as the submitted isbn does not repeat
-            alert("該ISBN已存在!");
+            
             e.preventDefault();
         }
     });
