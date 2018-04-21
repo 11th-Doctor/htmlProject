@@ -2,6 +2,7 @@
 $(function () {
     
     var indexArray = new Array();
+    
     showTable();
     
     function showTable()
@@ -55,8 +56,49 @@ $(function () {
         // Appending tr to tbody
         $("#mainTable tbody").append(tTr);
     }  
+
+    //Delete the record that the user wants to 
+
+    $("#mainTable tbody tr .btn-danger").click(function(e){
+        var isbn = $(this).parents("tr").data("isbn");
+        var index = indexArray.indexOf(isbn.toString());
+        $(this).parents("tr").remove();
+        indexArray.splice(index,1);
+        localStorage.removeItem(isbn);
+    });
+
+
+    //Get the reference of the form 0f formOfEditing
+    //and deal with the submit event of it.
     
+    $("#mainTable tbody tr .btn-success").click(function() {
+        isbn = $(this).parents("tr").data("isbn");
+        
+
+        var bookList = JSON.parse(localStorage.getItem(isbn));
+            
+            $("#isbnE").val(bookList.isbn);
+            $("#bookNameE").val(bookList.bookName);
+            $("#authorE").val(bookList.author);
+            $("#publicationDateE").val(bookList.publicationDate);
+            $("#priceE").val(bookList.price);
+            
+        $("#formOfEditing").submit(function(e){
+
+            var rows = {
+                    isbn:$("#isbnE").val(),
+                    bookName:$("#bookNameE").val(),
+                    author:$("#authorE").val(),
+                    publicationDate:$("#publicationDateE").val(),
+                    price:$("#priceE").val()
+                }
+                
+            localStorage.setItem(isbn,JSON.stringify(rows));
+            
+        });  
+    });
     
+
     $("#mainTable tbody tr .btn-danger").click(function(e){
         var isbn = $(this).parents("tr").data("isbn");
         var index = indexArray.indexOf(isbn.toString());
@@ -86,3 +128,4 @@ $(function () {
     });
     
 });
+
