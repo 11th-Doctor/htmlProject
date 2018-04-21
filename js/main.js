@@ -93,10 +93,8 @@ $(function () {
                 }
                 
             localStorage.setItem(isbn,JSON.stringify(rows));
-            console.log(rows);
-            // e.preventDefault();
-        });
-        console.log(indexArray);    
+            
+        });  
     });
     
 });
