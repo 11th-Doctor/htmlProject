@@ -69,8 +69,8 @@ $(function () {
         var publicationDate = "<td>" + bookList.publicationDate + "</td>";
         var price = "<td>" + bookList.price + "</td>";
         var buttons = "<td>" + '<button class="btn btn-outline-success btn-sm" data-toggle="modal"'
-            + ' data-target="#ModalEdit">修改</button>' 
-            + ' <button class="btn btn-outline-danger btn-sm">刪除</button></td>';
+            + ' data-target="#ModalEdit">修改 <span class="oi oi-pencil"></span></button>' 
+            + ' <button class="btn btn-outline-danger btn-sm">刪除 <span class="oi oi-delete"></span></button></td>';
         
         // Generating tr
         var tTr = $("<tr></tr>").append(isbn).append(bookName).append(author)
