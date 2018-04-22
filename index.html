@@ -128,23 +128,24 @@
                           <div class="form-group">
                             <label class="label-control">
                               ISBN:
-                              <input type="text" class="form-control" id="isbnE" name="isbn" disabled/>
+                              <input type="text" class="form-control" id="isbnE" name="isbn"/>
                             </label>
                             <label class="label-control">
                               書名:
-                              <input type="text" class="form-control" id="bookNameE" name="bookName"/>
+                              <input type="text" class="form-control" id="bookNameE" name="bookName" required/>
                             </label>
                             <label class="label-control">
                               作者:
-                              <input type="text" class="form-control" id="authorE" name="author"/>
+                              <input type="text" class="form-control" id="authorE" name="author" required/>
                             </label>
                             <label class="label-control">
                               出版日期:
-                              <input type="date" class="form-control" id="publicationDateE" name="publicationDate"/>
+                              <input type="date" class="form-control" id="publicationDateE" name="publicationDate" required/>
                             </label>
                             <label class="label-control">
                               售價:
-                              <input type="text" class="form-control" id="priceE" name="price"/>
+                              <input type="text" class="form-control" id="priceE" name="price" required
+                              pattern="\d{1,4}$"/>
                             </label>
                           </div>
                         </form>
