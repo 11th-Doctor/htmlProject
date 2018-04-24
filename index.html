@@ -8,12 +8,13 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <link href="font/css/open-iconic-bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/sliderstyle.css">
     <link rel="stylesheet" href="css/style.css">
     <title>圖書管理系統</title>
     <style>
       
       .modal-header, h4, .close {
-        background-color:gray;
+        background-color:#00e6e6;
         color:white;
         text-align: center;
         font-size:2em;
@@ -33,22 +34,44 @@
         width:930px; /*930*/
       }
       
+      .slideContainer{
+        margin:-120px auto 10px auto;
+        max-width:340px;
+      }
+      
     </style>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+	  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.transit/0.9.12/jquery.transit.min.js"></script>
+	  <script type="text/javascript" src="js/slider.jquery.js"></script>
   </head>
   <body>
     
     <div class="jumbotron jumbotron-fluid">
       <div class="container">
-        <h1 class="display-4">You want weapons? </h1>
-        <!--<p class="lead">We're in a library! Books! The best weapons in the world! This room's the greatest arsenal we could have - arm yourselves!</p>-->
+        <h1 class="display-4 font-italic" >You want weapons? </h1>
+        <p class="lead font-italic" >We're in a library! Books! The best weapons in the world! This room's the greatest arsenal we could have - arm yourselves!</p>
         <blockquote class="blockquote text-right">
-          <p class="mb-0">We're in a library! Books! The best weapons in the world! This room's the greatest arsenal we could have - arm yourselves!</p>
-          <footer class="blockquote-footer">Tenth Doctor <cite title="Source Title">Doctor Who</cite></footer>
+          <!--<p class="mb-0 font-italic">We're in a library! Books! The best weapons in the world! This room's the greatest arsenal we could have - arm yourselves!</p>-->
+          <footer class="blockquote-footer font-italic">Tenth Doctor <cite title="Source Title" class="font-italic">Doctor Who</cite></footer>
         </blockquote> 
       </div>
     </div>
     
+      
+      <div class="slideContainer">
+        <section class="slider">
+          <img width="100%" height="100%" src="http://im2.book.com.tw/image/getImage?i=http://www.books.com.tw/img/001/055/02/0010550213.jpg"/>
+          <img width="100%" height="100%" src="http://im2.book.com.tw/image/getImage?i=http://www.books.com.tw/img/E05/002/55/E050025547.jpg" class="left"/>
+          <img width="100%" height="100%" src="http://im2.book.com.tw/image/getImage?i=http://www.books.com.tw/img/001/078/08/0010780859.jpg" class="center"/>
+          <img width="100%" height="100%" src="http://im2.book.com.tw/image/getImage?i=http://www.books.com.tw/img/E05/002/51/E050025100.jpg" class="right"/>
+          <img width="100%" height="100%" src="http://im2.book.com.tw/image/getImage?i=http://www.books.com.tw/img/E05/001/17/E050011703.jpg"/>
+        </section>
+      </div>
+    	
+    
+    
     <div class="container">
+      
         <div class="row">
             <div class="col-sm-12">
               <table id="mainTable" class="table table-hover table-bordered tablesorter"> 
