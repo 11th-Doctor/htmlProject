@@ -34,9 +34,13 @@
         width:930px; /*930*/
       }
       
-      .slideContainer{
+      .sliderContainer{
         margin:-120px auto 10px auto;
         max-width:340px;
+      }
+      
+      #addBtn {
+        margin-bottom:20px;
       }
       
     </style>
@@ -58,7 +62,7 @@
     </div>
     
       
-      <div class="slideContainer">
+      <div class="sliderContainer">
         <section class="slider">
           <img width="100%" height="100%" src="http://im2.book.com.tw/image/getImage?i=http://www.books.com.tw/img/001/055/02/0010550213.jpg"/>
           <img width="100%" height="100%" src="http://im2.book.com.tw/image/getImage?i=http://www.books.com.tw/img/E05/002/55/E050025547.jpg" class="left"/>
@@ -172,7 +176,7 @@
                           <div class="form-group">
                             <label class="label-control">
                               ISBN:
-                              <input type="text" class="form-control" id="isbnE" name="isbn"/>
+                              <input type="text" class="form-control" id="isbnE" name="isbn" disabled/>
                             </label>
                             <label class="label-control">
                               書名:
